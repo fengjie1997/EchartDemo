@@ -178,6 +178,196 @@
     myChart.resize();
   });
 })();
+
+// 折线图1
+(function () {
+  var yearData = [{
+    year: '2020',
+    data: [[22, 33, 44, 55, 66, 77, 88, 99, 110],[11, 45, 43, 22, 55, 54, 34, 78, 92]]
+  }, {
+    year: '2021',
+    data: [[32, 12, 53, 59, 101, 203, 141, 123, 22],[47, 78, 98, 24, 51, 67, 89, 35, 63]]
+
+  }]
+  var myChart = echarts.init(document.querySelector(".line .chart"))
+  var option = {
+    tooltip: {
+      trigger: 'axis'
+    },
+    legend: {
+      data: ['邮件营销', '联盟广告'],
+      textStyle: {
+        color: '#4c9bfd'
+      },
+      right: '10%'
+    },
+    grid: {
+      top: '20%',
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true,
+      borderColor: '#012f4a'
+    },
+    // toolbox: {
+    //   feature: {
+    //     saveAsImage: {}
+    //   }
+    // },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+      axisTick: {
+        show: false
+      },
+      axisLine: {
+        show: false
+      },
+      axisLabel: {
+        color: '#4c9bfd',
+        fontSize: '7'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      axisTick: {
+        show: false
+      },
+      axisLine: {
+        show: false
+      },
+      axisLabel: {
+        color: '#4c9bfd'
+      },
+      splitLine: {
+        lineStyle: {
+          color: '#012f4a'
+        }
+      }
+    },
+    series: [
+      {
+        name: '新增粉丝',
+        type: 'line',
+        data: yearData[0].data[0],
+        smooth: true
+      },
+      {
+        name: '新增游客',
+        type: 'line',
+        data: yearData[0].data[1],
+        smooth: true
+      }
+    ]
+  };
+  myChart.setOption(option);
+  window.addEventListener("resize", function() {
+    //   让我们图表调用resize方法
+    myChart.resize();
+  });
+  $('.line h2').on('click', 'a', function() {
+    var obj = yearData[$(this).index()]
+    console.log(obj, $(this).index())
+    option.series[0].data = obj.data[0]
+    option.series[1].data = obj.data[1]
+    myChart.setOption(option)
+  })
+})();
+
+// 折线图2
+(function () {
+  var myChart = echarts.init(document.querySelector('.line2 .chart'));
+  var option = {
+      tooltip: {
+          trigger: 'axis',
+      },
+      legend: {
+        top: '0%',
+        data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
+        textStyle: {
+          color: 'rgba(255, 255, 255, .7)',
+          fontSize: '12'
+        }
+      },
+      grid: {
+          left: '10',
+        top: '30',
+          right: '10%',
+          bottom: '10%',
+          containLabel: true
+      },
+      xAxis: [
+          {
+              type: 'category',
+              boundaryGap: false,
+              data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            axisLabel: {
+                textStyle: {
+                  color: 'rgba(255, 255, 255, .6)',
+                  fontSize: '12'
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                  color: 'rgba(255, 255, 255, .1)'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                  color: 'rgba(255, 255, 255, .1)'
+                }
+            }
+          }
+      ],
+      yAxis: [
+          {
+              type: 'value',
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+              textStyle: {
+                color: 'rgba(255, 255, 255, .6)',
+                fontSize: '12'
+              }
+            },
+            axisLine: {
+              lineStyle: {
+                color: 'rgba(255, 255, 255, .2)'
+              }
+            }
+          }
+      ],
+      series: [
+          {
+              name: '邮件营销',
+              type: 'line',
+              stack: '总量',
+              areaStyle: {},
+              emphasis: {
+                  focus: 'series'
+              },
+              data: [120, 132, 101, 134, 90, 230, 210]
+          },
+          {
+              name: '联盟广告',
+              type: 'line',
+              stack: '总量',
+              areaStyle: {},
+              emphasis: {
+                  focus: 'series'
+              },
+              data: [220, 182, 191, 234, 290, 330, 310]
+          }
+      ]
+  };
+  myChart.setOption(option);
+  window.addEventListener("resize", function() {
+      //   让我们图表调用resize方法
+      myChart.resize();
+    });
+})();
 // map地图航线模块
 // (function() {
 //   // 1. 实例化

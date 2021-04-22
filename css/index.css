@@ -5,11 +5,13 @@
   list-style: none;
   font-size: 16px;
 }
+
 body {
   background: url(../images/bg.jpg) no-repeat top center;
   line-height: 1.15;
   height: 100%;
 }
+
 @font-face {
   font-family: electronicFont;
   src: url(../font/DS-DIGIT.TTF);
@@ -38,6 +40,7 @@ header .showTime {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.2rem;
 }
+
 .mainbox {
   display: flex;
   min-width: 1024px;
@@ -160,7 +163,7 @@ header .showTime {
   font-size: 0.7rem;
   color: #ffeb7b;
   flex: 1;
-  font-family: 'electronicFont', serif;
+  font-family: "electronicFont", serif;
   position: relative;
 }
 .mainbox .no .no-hd ul li:nth-child(1)::after {
@@ -246,10 +249,12 @@ header .showTime {
   top: 0;
   left: 0;
 }
+
 .box {
   width: 1rem;
   height: 1rem;
   background-color: pink;
   padding: 0.15rem;
 }
+
 /*# sourceMappingURL=index.css.map */
